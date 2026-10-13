@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+{% if not current_category and not keyword %}
+<section class="hero">
+  <div class="container">
+    <p class="hero-eyebrow">ARDUINO PARTS SHOP</p>
+    <h1>만들고 싶은 것,<br>부품부터 여기서.</h1>
+    <p class="hero-sub">아두이노 보드, 센서, 모터, 입문 키트까지 한곳에서 고르세요.</p>
+  </div>
+</section>
+{% endif %}
+
+<section class="container section">
+  <form class="search-form" action="{{ url_for('products.index') }}" method="get">
+    {% if current_category %}<input type="hidden" name="category" value="{{ current_category.slug }}">{% endif %}
+    <input type="search" name="q" value="{{ keyword }}" placeholder="상품 이름으로 검색 (예: 센서, 서보)">
+    <button class="btn" type="submit">검색</button>
+  </form>
+
+  <nav class="category-tabs">
+    <a href="{{ url_for('products.index', q=keyword or None) }}" class="{{ 'active' if not current_category }}">전체</a>
+    {% for c in nav_categories %}
+      <a href="{{ url_for('products.index', category=c.slug, q=keyword or None) }}"
+         class="{{ 'active' if current_category and current_category.slug == c.slug }}">{{ c.name }}</a>
+    {% endfor %}
+  </nav>
+
+  <h2 class="section-title">
+    {{ current_category.name if current_category else '전체상품' }}
+    {% if keyword %}<span class="muted">· '{{ keyword }}' 검색 결과</span>{% endif %}
+    <span class="muted">({{ products|length }}개)</span>
+  </h2>
+
+  {% if products %}
+    <div class="product-grid">
+      {% for p in products %}
+        <a class="product-card" href="{{ url_for('products.detail', product_id=p.id) }}">
+          <div class="product-thumb">
+            {% if p.image_url %}<img src="{{ image_src(p.image_url) }}" alt="{{ p.name }}" loading="lazy">{% endif %}
+          </div>
+          <div class="product-info">
+            <p class="product-category">{{ p.categories.name if p.categories else '' }}</p>
+            <p class="product-name">{{ p.name }}</p>
+            <p class="product-price">{{ p.price|won }}
+              {% if p.stock == 0 %}<span class="soldout">품절</span>{% endif %}</p>
+          </div>
+        </a>
+      {% endfor %}
+    </div>
+  {% else %}
+    <p class="empty">조건에 맞는 상품이 없습니다.</p>
+  {% endif %}
+</section>
+{% endblock %}

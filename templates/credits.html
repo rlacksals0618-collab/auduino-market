@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+{% block title %}이미지 출처{% endblock %}
+
+{% block content %}
+<section class="container section">
+  <h1 class="section-title">이미지 출처</h1>
+  <p class="muted">상품 사진은 자유 이용 라이선스(Creative Commons)로 공개된 사진을 사용했습니다.</p>
+  <div class="table-wrap">
+    <table class="table">
+      <tr><th>상품</th><th>저작자</th><th>라이선스</th><th>원본</th></tr>
+      {% for p in products %}
+        <tr>
+          <td>{{ p.name }}</td>
+          <td>{{ p.image_author }}</td>
+          <td>{{ p.image_license }}</td>
+          <td><a class="text-link" href="{{ p.image_source }}" target="_blank" rel="noopener">보기 ↗</a></td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+</section>
+{% endblock %}

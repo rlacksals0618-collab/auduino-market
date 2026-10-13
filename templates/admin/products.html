@@ -1,0 +1,41 @@
+{% extends "base.html" %}
+{% block title %}관리자 · 상품{% endblock %}
+
+{% block content %}
+<section class="container section">
+  <div class="page-head">
+    <h1>상품 관리</h1>
+    <div class="admin-tabs">
+      <a class="btn btn-outline" href="{{ url_for('admin.orders') }}">주문 관리</a>
+      <a class="btn" href="{{ url_for('admin.product_new') }}">+ 상품 등록</a>
+    </div>
+  </div>
+
+  <div class="table-wrap">
+    <table class="table">
+      <tr><th>번호</th><th>상품</th><th>카테고리</th><th>가격</th><th>재고</th><th></th></tr>
+      {% for p in products %}
+        <tr>
+          <td>{{ p.id }}</td>
+          <td>
+            <a class="item-cell" href="{{ url_for('products.detail', product_id=p.id) }}">
+              {% if p.image_url %}<img src="{{ image_src(p.image_url) }}" alt="">{% endif %}
+              <span>{{ p.name }}</span>
+            </a>
+          </td>
+          <td>{{ p.categories.name if p.categories else '-' }}</td>
+          <td>{{ p.price|won }}</td>
+          <td>{% if p.stock == 0 %}<span class="soldout">품절</span>{% else %}{{ p.stock }}{% endif %}</td>
+          <td class="actions">
+            <a class="btn btn-outline btn-small" href="{{ url_for('admin.product_edit', product_id=p.id) }}">수정</a>
+            <form action="{{ url_for('admin.product_delete', product_id=p.id) }}" method="post"
+                  data-confirm="'{{ p.name }}' 상품을 삭제할까요?">
+              <button class="btn btn-danger btn-small" type="submit">삭제</button>
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
+</section>
+{% endblock %}

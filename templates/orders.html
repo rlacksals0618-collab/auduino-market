@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+{% block title %}주문내역{% endblock %}
+
+{% block content %}
+<section class="container section">
+  <div class="page-head"><h1>주문내역</h1></div>
+
+  {% for o in orders %}
+    <div class="order-card">
+      <div class="order-head">
+        <strong>주문번호 {{ o.id }}</strong>
+        <span class="muted">{{ o.created_at|datetime }}</span>
+        <span class="status">{{ o.status }}</span>
+      </div>
+      <ul class="plain-list">
+        {% for i in o.order_items %}
+          <li><span>{{ i.product_name }} × {{ i.quantity }}</span><span>{{ (i.price * i.quantity)|won }}</span></li>
+        {% endfor %}
+      </ul>
+      <p class="order-total"><span>합계</span><strong>{{ o.total_price|won }}</strong></p>
+      <p class="muted">배송지: {{ o.recipient }} · {{ o.phone }} · {{ o.address }}</p>
+    </div>
+  {% else %}
+    <p class="empty">아직 주문한 상품이 없습니다.</p>
+  {% endfor %}
+</section>
+{% endblock %}

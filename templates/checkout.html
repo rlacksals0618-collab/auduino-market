@@ -1,0 +1,33 @@
+{% extends "base.html" %}
+{% block title %}주문하기{% endblock %}
+
+{% block content %}
+<section class="container section">
+  <div class="page-head"><h1>주문하기</h1></div>
+
+  <div class="checkout">
+    <form class="admin-form" method="post">
+      <h2 class="sub-title">배송 정보</h2>
+      <label for="recipient">받는 분</label>
+      <input id="recipient" name="recipient" value="{{ request.form.recipient or session.name }}" required>
+      <label for="phone">연락처</label>
+      <input id="phone" name="phone" value="{{ request.form.phone }}" placeholder="010-0000-0000" required>
+      <label for="address">주소</label>
+      <input id="address" name="address" value="{{ request.form.address }}" required>
+      <p class="fake-notice">가짜 결제입니다. 돈이 빠져나가지 않고 실제로 배송되지 않습니다.<br>진짜 이름·연락처·주소를 넣지 마세요.</p>
+      <button class="btn btn-block" type="submit">{{ total|won }} 결제하기</button>
+    </form>
+
+    <div class="order-card">
+      <h2 class="sub-title">주문 상품</h2>
+      <ul class="plain-list">
+        {% for item in items %}
+          <li><span>{{ item.products.name }} × {{ item.quantity }}</span>
+              <span>{{ (item.products.price * item.quantity)|won }}</span></li>
+        {% endfor %}
+      </ul>
+      <p class="order-total"><span>합계</span><strong>{{ total|won }}</strong></p>
+    </div>
+  </div>
+</section>
+{% endblock %}

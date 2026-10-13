@@ -1,0 +1,54 @@
+{% extends "base.html" %}
+{% block title %}{{ product.name }}{% endblock %}
+
+{% block content %}
+<section class="container detail">
+  <div class="detail-image">
+    {% if product.image_url %}<img src="{{ image_src(product.image_url) }}" alt="{{ product.name }}">{% endif %}
+    {% if product.image_author %}
+      <p class="muted image-credit">사진: {{ product.image_author }} ({{ product.image_license }})</p>
+    {% endif %}
+  </div>
+
+  <div>
+    {% if product.categories %}
+      <a class="product-category" href="{{ url_for('products.index', category=product.categories.slug) }}">{{ product.categories.name }}</a>
+    {% endif %}
+    <h1>{{ product.name }}</h1>
+    <p class="detail-price">{{ product.price|won }}</p>
+    <p class="detail-desc">{{ product.description }}</p>
+
+    <table class="spec-table">
+      {% for spec in product.specs %}
+        {% set parts = spec.split(':', 1) %}
+        <tr>
+          {% if parts|length == 2 %}
+            <th>{{ parts[0] }}</th><td>{{ parts[1].strip() }}</td>
+          {% else %}
+            <td colspan="2">{{ spec }}</td>
+          {% endif %}
+        </tr>
+      {% endfor %}
+      <tr>
+        <th>재고</th>
+        <td>{% if product.stock > 0 %}{{ product.stock }}개{% else %}<span class="soldout">품절</span>{% endif %}</td>
+      </tr>
+    </table>
+
+    {% if product.stock > 0 %}
+      <form class="buy-form" action="{{ url_for('cart.add') }}" method="post">
+        <input type="hidden" name="product_id" value="{{ product.id }}">
+        <input type="number" name="quantity" value="1" min="1" max="{{ product.stock }}" aria-label="수량">
+        <button class="btn btn-outline" type="submit">장바구니 담기</button>
+        <button class="btn" type="submit" name="buy_now" value="1">바로 구매</button>
+      </form>
+    {% else %}
+      <button class="btn" disabled>품절</button>
+    {% endif %}
+
+    {% if product.devicemart_url %}
+      <p class="muted ref-link">가격 참고: <a href="{{ product.devicemart_url }}" target="_blank" rel="noopener">디바이스마트 상품 페이지 ↗</a></p>
+    {% endif %}
+  </div>
+</section>
+{% endblock %}

@@ -1,0 +1,230 @@
+[
+  {
+    "slug": "uno-r3",
+    "name": "Arduino Uno R3 정품",
+    "category": "보드",
+    "price": 31900,
+    "stock": 50,
+    "description": "가장 많이 쓰이는 표준 아두이노 보드입니다. ATmega328P 기반으로 입문용 실습과 프로토타이핑에 적합한 이탈리아 정품(A000066)입니다.",
+    "specs": [
+      "MCU: ATmega328P",
+      "동작전압: 5V",
+      "디지털 I/O 14핀 / 아날로그 입력 6핀"
+    ],
+    "devicemart_url": "https://www.devicemart.co.kr/goods/view?no=34404",
+    "price_verified": true,
+    "image": "images/products/uno-r3.jpg",
+    "image_source": "https://commons.wikimedia.org/wiki/File:Arduino_Uno_-_R3.jpg",
+    "image_license": "CC BY 2.0",
+    "image_author": "SparkFun Electronics from Boulder, USA"
+  },
+  {
+    "slug": "nano",
+    "name": "Arduino Nano 정품",
+    "category": "보드",
+    "price": 37400,
+    "stock": 30,
+    "description": "브레드보드에 바로 꽂아 쓸 수 있는 소형 아두이노 보드입니다. 우노와 같은 ATmega328 계열이라 코드 호환이 쉽습니다.",
+    "specs": [
+      "MCU: ATmega328",
+      "동작전압: 5V (입력 7~12V)",
+      "크기: 18 x 45mm, 7g"
+    ],
+    "devicemart_url": "https://www.devicemart.co.kr/goods/view?no=34411",
+    "price_verified": true,
+    "image": "images/products/nano.jpg",
+    "image_source": "https://commons.wikimedia.org/wiki/File:Arduino_nano_isometr.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_author": "MakeMagazinDE"
+  },
+  {
+    "slug": "mega2560",
+    "name": "Arduino Mega 2560 R3 정품",
+    "category": "보드",
+    "price": 64900,
+    "stock": 20,
+    "description": "핀 수와 메모리가 넉넉한 대형 아두이노 보드입니다. 많은 센서와 모터를 동시에 다루는 프로젝트에 적합합니다.",
+    "specs": [
+      "MCU: ATmega2560",
+      "디지털 I/O 54핀 / 아날로그 입력 16핀",
+      "플래시 메모리: 256KB"
+    ],
+    "devicemart_url": "https://www.devicemart.co.kr/goods/view?no=34405",
+    "price_verified": true,
+    "image": "images/products/mega2560.jpg",
+    "image_source": "https://commons.wikimedia.org/wiki/File:Arduino_MEGA_2560_R3,_front_side.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_author": "Dsimic"
+  },
+  {
+    "slug": "hc-sr04",
+    "name": "HC-SR04 초음파 거리센서",
+    "category": "센서",
+    "price": 1210,
+    "stock": 100,
+    "description": "초음파를 쏘고 반사되어 돌아오는 시간으로 거리를 측정하는 센서 모듈입니다. 장애물 감지, 거리 측정 실습에 많이 쓰입니다.",
+    "specs": [
+      "동작전압: 5V",
+      "측정거리: 2cm ~ 500cm",
+      "핀: VCC / Trig / Echo / GND"
+    ],
+    "devicemart_url": "https://www.devicemart.co.kr/goods/view?no=1076851",
+    "price_verified": true,
+    "image": "images/products/hc-sr04.jpg",
+    "image_source": "https://commons.wikimedia.org/wiki/File:SparkFun_HC-SR04_Ultrasonic-Sensor_13959-01a.jpg",
+    "image_license": "CC BY 2.0",
+    "image_author": "SparkFun"
+  },
+  {
+    "slug": "dht11",
+    "name": "DHT11 온습도 센서 모듈",
+    "category": "센서",
+    "price": 7260,
+    "stock": 80,
+    "description": "온도와 습도를 디지털 신호 하나로 읽을 수 있는 센서 모듈입니다. 스마트팜, 실내 환경 측정 실습에 적합합니다.",
+    "specs": [
+      "동작전압: 3.3V / 5V",
+      "온도: 0~50°C (±2°C)",
+      "습도: 20~90%RH (±5%RH)"
+    ],
+    "devicemart_url": "https://www.devicemart.co.kr/goods/view?no=1383893",
+    "price_verified": true,
+    "image": "images/products/dht11.jpg",
+    "image_source": "https://commons.wikimedia.org/wiki/File:Dht11.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_author": "Edwiyanto"
+  },
+  {
+    "slug": "hc-sr501",
+    "name": "HC-SR501 PIR 인체감지 센서",
+    "category": "센서",
+    "price": 2970,
+    "stock": 60,
+    "description": "사람이나 동물의 움직임(적외선 변화)을 감지하는 센서 모듈입니다. 자동 조명, 보안 경보 장치 만들기에 쓰입니다.",
+    "specs": [
+      "동작전압: 5~20V",
+      "감지거리: 약 7m",
+      "감지각도: 약 120°"
+    ],
+    "devicemart_url": "https://www.devicemart.co.kr/goods/view?no=10825465",
+    "price_verified": true,
+    "image": "images/products/hc-sr501.jpg",
+    "image_source": "https://commons.wikimedia.org/wiki/File:PIR_motion_sensor_for_Arduino_oblique_view.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_author": "Sjilla"
+  },
+  {
+    "slug": "sg90",
+    "name": "SG90 미니 서보모터",
+    "category": "모터·구동",
+    "price": 2090,
+    "stock": 100,
+    "description": "가볍고 저렴한 9g 미니 서보모터입니다. PWM 신호로 원하는 각도만큼 정확히 회전시킬 수 있습니다.",
+    "specs": [
+      "무게: 9g",
+      "토크: 1.8kg·cm (4.8V)",
+      "속도: 0.1초/60° (4.8V)"
+    ],
+    "devicemart_url": "https://www.devicemart.co.kr/goods/view?no=1128421",
+    "price_verified": true,
+    "image": "images/products/sg90.jpg",
+    "image_source": "https://commons.wikimedia.org/wiki/File:Tower_Pro_SG90_micro_servo_motor.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_author": "Suyash Dwivedi"
+  },
+  {
+    "slug": "stepper-28byj48",
+    "name": "28BYJ-48 스텝모터 + ULN2003 드라이버",
+    "category": "모터·구동",
+    "price": 2310,
+    "stock": 40,
+    "description": "5V 감속 스텝모터와 ULN2003 드라이버 모듈 세트입니다. 회전 각도, 방향, 속도를 정밀하게 제어하는 실습에 적합합니다.",
+    "specs": [
+      "동작전압: 5V",
+      "모터 직경: 28mm",
+      "드라이버 보드: 35 x 33mm"
+    ],
+    "devicemart_url": "https://www.devicemart.co.kr/goods/view?no=1327608",
+    "price_verified": true,
+    "image": "images/products/stepper-28byj48.jpg",
+    "image_source": "https://commons.wikimedia.org/wiki/File:28BYJ-48_unipolar_stepper_motor_with_ULN2003_driver.jpg",
+    "image_license": "CC BY-SA 4.0",
+    "image_author": "Kushagra Keshari"
+  },
+  {
+    "slug": "l298n",
+    "name": "L298N 모터드라이버 모듈",
+    "category": "모터·구동",
+    "price": 2970,
+    "stock": 50,
+    "description": "L298N 칩을 탑재한 듀얼 H-브리지 모터 드라이버입니다. DC모터 2개의 방향과 속도를 제어할 수 있어 RC카, 로봇 제작에 많이 쓰입니다.",
+    "specs": [
+      "작동전압: 5V ~ 35V",
+      "최대전류: 2A (브리지당)",
+      "채널: DC모터 2개 / 스텝모터 1개"
+    ],
+    "devicemart_url": "https://www.devicemart.co.kr/goods/view?no=1278835",
+    "price_verified": true,
+    "image": "images/products/l298n.jpg",
+    "image_source": "https://www.flickr.com/photos/45703688@N07/20061691276/",
+    "image_license": "CC BY-SA 2.0",
+    "image_author": "Les Pounder (lespounder)"
+  },
+  {
+    "slug": "breadboard-830",
+    "name": "브레드보드 830핀 (MB-102)",
+    "category": "부품·키트",
+    "price": 1540,
+    "stock": 100,
+    "description": "납땜 없이 부품을 꽂아 회로를 구성할 수 있는 표준 크기 브레드보드입니다. 아두이노 실습의 필수 준비물입니다.",
+    "specs": [
+      "규격: 830핀 (MB-102)",
+      "크기: 165 x 55 x 8.5mm",
+      "핀 간격: 2.54mm"
+    ],
+    "devicemart_url": "https://www.devicemart.co.kr/goods/view?no=1322408",
+    "price_verified": true,
+    "image": "images/products/breadboard-830.jpg",
+    "image_source": "https://commons.wikimedia.org/wiki/File:BREB-02_(14335226011).jpg",
+    "image_license": "CC BY-SA 2.0",
+    "image_author": "oomlout"
+  },
+  {
+    "slug": "jumper-wire",
+    "name": "점퍼케이블 40P (M/M) 20cm",
+    "category": "부품·키트",
+    "price": 935,
+    "stock": 100,
+    "description": "양쪽이 수(M) 핀으로 된 컬러 점퍼 케이블 40가닥 묶음입니다. 브레드보드와 아두이노를 연결할 때 사용합니다.",
+    "specs": [
+      "타입: Male-Male",
+      "길이: 20cm",
+      "수량: 40가닥 (분리 사용 가능)"
+    ],
+    "devicemart_url": "https://www.devicemart.co.kr/goods/view?no=1321196",
+    "price_verified": true,
+    "image": "images/products/jumper-wire.jpg",
+    "image_source": "https://commons.wikimedia.org/wiki/File:A_few_Jumper_Wires.jpg",
+    "image_license": "CC BY-SA 2.0",
+    "image_author": "oomlout"
+  },
+  {
+    "slug": "starter-kit",
+    "name": "아두이노 스타터 키트 (한글판)",
+    "category": "부품·키트",
+    "price": 152900,
+    "stock": 10,
+    "description": "아두이노 우노 보드와 기초 전자부품, 15가지 프로젝트가 담긴 한글 가이드북으로 구성된 공식 입문 키트입니다.",
+    "specs": [
+      "구성: Arduino Uno + 기초 전자부품",
+      "가이드북: 한글판, 15개 프로젝트",
+      "동작전압: 5V"
+    ],
+    "devicemart_url": "https://www.devicemart.co.kr/goods/view?no=1149109",
+    "price_verified": true,
+    "image": "images/products/starter-kit.jpg",
+    "image_source": "https://www.flickr.com/photos/62141688@N08/16624491097/",
+    "image_license": "CC BY-SA 2.0",
+    "image_author": "Ultra-lab"
+  }
+]

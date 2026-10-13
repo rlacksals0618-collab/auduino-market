@@ -1,0 +1,10 @@
+.env
+.env.*
+__pycache__/
+*.pyc
+supabase_connect.py
+database/
+static/images/products/CREDITS.md
+docs/
+README.md
+.env.example

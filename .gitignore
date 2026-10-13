@@ -1,0 +1,9 @@
+.env
+__pycache__/
+*.pyc
+
+.vercel
+.env*
+
+# 예시 파일은 올림
+!.env.example

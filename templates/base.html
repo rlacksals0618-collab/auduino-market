@@ -1,0 +1,68 @@
+<!doctype html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>{% block title %}아두마켓{% endblock %} | 아두이노 부품 쇼핑몰</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+<body>
+  <div class="fake-banner" role="alert">
+    <p class="fake-title">⚠ 이 사이트는 가짜 쇼핑몰입니다 ⚠</p>
+    <p class="fake-sub">파이썬 수업 실습용입니다. 실제로 판매·결제·배송되지 않으며, 개인정보를 입력하지 마세요.</p>
+  </div>
+
+  <header class="site-header">
+    <div class="container header-inner">
+      <a href="{{ url_for('products.index') }}" class="logo">아두<span>마켓</span></a>
+      <nav class="main-nav">
+        <a href="{{ url_for('products.index') }}"
+           class="{{ 'active' if request.endpoint == 'products.index' and not request.args.get('category') }}">전체상품</a>
+        {% for c in nav_categories %}
+          <a href="{{ url_for('products.index', category=c.slug) }}"
+             class="{{ 'active' if request.args.get('category') == c.slug }}">{{ c.name }}</a>
+        {% endfor %}
+      </nav>
+      <div class="header-actions">
+        {% if session.user_id %}
+          {% if session.is_admin %}<a href="{{ url_for('admin.products') }}">관리자</a>{% endif %}
+          <a href="{{ url_for('orders.my_orders') }}">주문내역</a>
+          <a href="{{ url_for('cart.view') }}" class="cart-link">장바구니{% if cart_count %}<span class="badge">{{ cart_count }}</span>{% endif %}</a>
+          <a href="{{ url_for('auth.logout') }}">로그아웃</a>
+        {% else %}
+          <a href="{{ url_for('cart.view') }}" class="cart-link">장바구니</a>
+          <a href="{{ url_for('auth.login') }}">로그인</a>
+          <a href="{{ url_for('auth.signup') }}">회원가입</a>
+        {% endif %}
+      </div>
+    </div>
+  </header>
+
+  {% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+      <div class="container flash-wrap">
+        {% for category, message in messages %}
+          <div class="flash flash-{{ category }}">{{ message }}</div>
+        {% endfor %}
+      </div>
+    {% endif %}
+  {% endwith %}
+
+  <main>
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <p class="footer-logo">아두<span>마켓</span></p>
+      <p>파이썬 수업 실습용 아두이노 부품 쇼핑몰입니다. 실제 결제는 이루어지지 않습니다.</p>
+      <p class="muted">상품 가격은 디바이스마트 판매가(2026-10-13 기준)를 참고했습니다.
+        · <a href="{{ url_for('products.credits') }}" class="footer-link">이미지 출처</a></p>
+    </div>
+  </footer>
+  <div class="fake-ribbon">가짜 쇼핑몰 · 실제 판매 아님</div>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

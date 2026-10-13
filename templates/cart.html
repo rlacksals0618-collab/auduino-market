@@ -1,0 +1,49 @@
+{% extends "base.html" %}
+{% block title %}장바구니{% endblock %}
+
+{% block content %}
+<section class="container section">
+  <div class="page-head"><h1>장바구니</h1></div>
+
+  {% if items %}
+    <div class="table-wrap">
+      <table class="table">
+        <tr><th>상품</th><th>가격</th><th>수량</th><th>합계</th><th></th></tr>
+        {% for item in items %}
+          {% set p = item.products %}
+          <tr>
+            <td>
+              <a class="item-cell" href="{{ url_for('products.detail', product_id=p.id) }}">
+                {% if p.image_url %}<img src="{{ image_src(p.image_url) }}" alt="">{% endif %}
+                <span>{{ p.name }}</span>
+              </a>
+            </td>
+            <td>{{ p.price|won }}</td>
+            <td>
+              <form class="inline-form" action="{{ url_for('cart.update', item_id=item.id) }}" method="post">
+                <input type="number" name="quantity" value="{{ item.quantity }}" min="1" max="{{ p.stock }}" aria-label="수량">
+                <button class="btn btn-outline btn-small" type="submit">변경</button>
+              </form>
+            </td>
+            <td><strong>{{ (p.price * item.quantity)|won }}</strong></td>
+            <td>
+              <form action="{{ url_for('cart.remove', item_id=item.id) }}" method="post">
+                <button class="btn btn-danger btn-small" type="submit">삭제</button>
+              </form>
+            </td>
+          </tr>
+        {% endfor %}
+      </table>
+    </div>
+
+    <div class="summary">
+      <span>총 결제금액 <span class="total">{{ total|won }}</span></span>
+      <a class="btn btn-outline" href="{{ url_for('products.index') }}">쇼핑 계속하기</a>
+      <a class="btn" href="{{ url_for('orders.checkout') }}">주문하기</a>
+    </div>
+  {% else %}
+    <p class="empty">장바구니가 비어 있습니다.<br><br>
+      <a class="btn" href="{{ url_for('products.index') }}">상품 보러 가기</a></p>
+  {% endif %}
+</section>
+{% endblock %}

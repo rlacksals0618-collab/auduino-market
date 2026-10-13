@@ -1,0 +1,16 @@
+{% extends "base.html" %}
+{% block title %}로그인{% endblock %}
+
+{% block content %}
+<div class="container">
+  <form class="form-card" method="post">
+    <h1>로그인</h1>
+    <label for="email">이메일</label>
+    <input id="email" type="email" name="email" required autofocus>
+    <label for="password">비밀번호</label>
+    <input id="password" type="password" name="password" required>
+    <button class="btn btn-block" type="submit">로그인</button>
+    <p class="switch">처음이신가요? <a href="{{ url_for('auth.signup') }}">회원가입</a></p>
+  </form>
+</div>
+{% endblock %}
